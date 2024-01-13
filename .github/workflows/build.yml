@@ -1,0 +1,37 @@
+name: build
+on: [pull_request, push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    env:
+      version: version
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v2
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v2
+        with:
+          distribution: "adopt"
+          java-version: "17"
+
+      - name: Leer y Extraer Valor del JSON
+        shell: powershell
+        run: |
+          # Obtén el valor deseado (reemplaza 'clave' con la clave real)
+          $version = $(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          echo "version=$version" >> $env:GITHUB_ENV
+      # Asegúrate de que el archivo.json está en el mismo directorio que el flujo de traba
+      - name: test json env
+        run: |
+          echo version: $env:version
+      - name: package
+        run: mvn package -Dexec.mainClass=net.k3nder.App
+      # Si está en una ubicación diferente, ajusta la ruta en el comando Get-Content
+      - name: Crear Release en GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
