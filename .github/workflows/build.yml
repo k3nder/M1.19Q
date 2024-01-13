@@ -32,6 +32,8 @@ jobs:
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
         with:
+          name: ${{ env.version }}
+          tag: ${{ env.version }}
           files: target/*.jar
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
