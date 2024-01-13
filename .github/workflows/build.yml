@@ -20,7 +20,7 @@ jobs:
         shell: powershell
         run: |
           # Obtén el valor deseado (reemplaza 'clave' con la clave real)
-          $version = $(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          $version = $(mvn help:evaluate "-Dexpression=project.version" -q -DforceStdout)
           echo "version=$version" >> $env:GITHUB_ENV
       # Asegúrate de que el archivo.json está en el mismo directorio que el flujo de traba
       - name: test json env
