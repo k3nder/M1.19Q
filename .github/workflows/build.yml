@@ -27,7 +27,7 @@ jobs:
         run: |
           echo version: $env:version
       - name: package
-        run: mvn package -Dexec.mainClass=net.k3nder.App
+        run: mvn package "-Dexec.mainClass=net.k3nder.App"
       # Si está en una ubicación diferente, ajusta la ruta en el comando Get-Content
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
