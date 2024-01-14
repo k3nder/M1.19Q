@@ -27,7 +27,10 @@ jobs:
         run: |
           echo version: $env:version
       - name: package
-        run: mvn package "-Dexec.mainClass=net.k3nder.App"
+        shell: powershell
+        run: |
+          mvn clean package
+          Rename-Item -Path target/mci-${{ env.version }}.jar -NewName mci.jar
       # Si está en una ubicación diferente, ajusta la ruta en el comando Get-Content
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
