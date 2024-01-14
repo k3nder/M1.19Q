@@ -57,6 +57,8 @@
 							<mainClass>net.k3nder.App</mainClass>
 						</manifest>
 					</archive>
+					<finalName>mci</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
 				</configuration>
 				<executions>
 					<execution>

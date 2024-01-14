@@ -30,13 +30,13 @@ jobs:
         shell: powershell
         run: |
           mvn clean package
-          Rename-Item -Path target/mci-${{ env.version }}.jar -NewName mci.jar
+
       # Si está en una ubicación diferente, ajusta la ruta en el comando Get-Content
       - name: Crear Release en GitHub
         uses: softprops/action-gh-release@v1
         with:
           name: ${{ env.version }}
           tag_name: ${{ env.version }}
-          files: target/*.jar
+          files: target/mci.jar
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
