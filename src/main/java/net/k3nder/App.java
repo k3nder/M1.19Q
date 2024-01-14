@@ -33,8 +33,8 @@ public class App {
 			@Option(names = { "--destination",
 					"-d" }, required = false, description = "destination of downloads") String destination,
 			@Option(names = {"--quikplayw", "-qpw"}, required = false, description = "launch word") String wordPath,
-			@Option(names = {"-Xmx"}, required = false,description = "max ram") int Xmx,
-			@Option(names = {"-Xmx"}, required =false,description = "min ram") int Xms
+			@Option(names = {"-mr"}, required = false,description = "max ram") int Xmx,
+			@Option(names = {"-ms"}, required =false,description = "min ram") int Xms
 			) {
 		if (destination == null || destination.isEmpty()) destination = (SYSTEM == Linux ? DEFAUTL_LINUX_PATH : DEFAULT_WINDOWS_PATH);
 		if (username == null || username.isEmpty()) username = DEFAULT_USERNAME;
@@ -52,8 +52,8 @@ public class App {
 			@Option(names = {"-vl","--versionloader"},required = true, description = "version loader") String loader,
 			@Option(names = { "--username","-n" }, required = false, description = "user name") String username,
 			@Option(names = { "--destination","-d" }, required = false, description = "destination of downloads") String destination,
-			@Option(names = {"-Xmx"}, required = false,description = "max ram") int Xmx,
-			@Option(names = {"-Xmx"}, required =false,description = "min ram") int Xms)
+			@Option(names = {"-mr"}, required = false,description = "max ram") int Xmx,
+			@Option(names = {"-ms"}, required =false,description = "min ram") int Xms)
 			throws URISyntaxException {
 		if (destination == null || destination.isEmpty()) destination = (SYSTEM == Linux ? DEFAUTL_LINUX_PATH : DEFAULT_WINDOWS_PATH);
 		if (username == null || username.isEmpty()) username = DEFAULT_USERNAME;
@@ -73,8 +73,8 @@ public class App {
 			@Option(names = { "--username","-n" }, required = false, description = "user name") String username,
 			@Option(names = { "--destination",
 					"-d" }, required = false, description = "destination of downloads") String destination,
-			@Option(names = {"-Xmx"}, required = false,description = "max ram") int Xmx,
-			@Option(names = {"-Xmx"}, required =false,description = "min ram") int Xms)
+			@Option(names = {"-mr"}, required = false,description = "max ram") int Xmx,
+			@Option(names = {"-ms"}, required =false,description = "min ram") int Xms)
 			throws URISyntaxException {
 		if (destination == null || destination.isEmpty()) destination = (SYSTEM == Linux ? DEFAUTL_LINUX_PATH : DEFAULT_WINDOWS_PATH);
 		if (username == null || username.isEmpty()) username = DEFAULT_USERNAME;
