@@ -5,7 +5,7 @@
 
 	<groupId>io.github.k3nder</groupId>
 	<artifactId>mci</artifactId>
-	<version>0.1.0</version>
+	<version>1.1.0</version>
 	<packaging>jar</packaging>
 
 	<name>mci</name>
